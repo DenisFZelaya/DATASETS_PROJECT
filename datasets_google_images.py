@@ -73,7 +73,6 @@ def get_images_bing(query, folder_name, max_images=100):
             break
         last_height = new_height
 
-    print("imagenes: ", urls_imagenes)
     for idx, url in enumerate(urls_imagenes):
         try:
             image_name = os.path.join(folder_name, f'image_{idx+1}.jpg')
@@ -95,9 +94,9 @@ def get_images_bing(query, folder_name, max_images=100):
     driver.quit()
 
 # Parámetros
-query = 'Calvicie'
-folder_name = '/datasets/Calvicie-google'
-max_images = 500
+query = 'billete de un lempira de honduras'
+folder_name = '/datasets/monedas/lempira'
+max_images = 1000
 
 # Obtener imágenes
 get_images_bing(query, folder_name, max_images)

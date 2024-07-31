@@ -19,7 +19,6 @@ def download_image(url, folder_name, image_name):
             f.write(response.content)
 
 
-
 def get_images_bing(query, folder_name, max_images=100):
     # Configura el navegador (en este caso, Chrome)
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
@@ -72,7 +71,7 @@ def get_images_bing(query, folder_name, max_images=100):
             break
         last_height = new_height
 
-    print("imagenes: ", urls_imagenes)
+    
     for idx, url in enumerate(urls_imagenes):
         try:
             image_name = os.path.join(folder_name, f'image_{idx+1}.jpg')
@@ -80,7 +79,7 @@ def get_images_bing(query, folder_name, max_images=100):
             print(f"\nImagen guardada como {image_name}")
             
         except Exception as e:
-            print("Error al descargar la imagen")
+            print("Error al descargar la imagen: ", url)
 
 
     # Cierra el navegador
